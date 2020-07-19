@@ -17,22 +17,30 @@ class MediaCellPresenter {
   }
   
   func loadImages(medias: [MediaModelView]) {
-    for media in medias {
-      guard let url = media.url else {
+    var tokens = [UUID]()
+    for index in 0 ..< medias.count {
+      guard let url = medias[index].url else {
         return
       }
-      let token = loader?.loadImage(url) { result in
+      let token = loader?.loadImage(url, identifier: medias[index].identifier) { result in
         do {
           let image = try result.get()
           DispatchQueue.main.async {
-            self.output.showImage(image: image, index: 0)
+            self.output.showImage(image: image, index: index)
           }
         } catch {
           print(error)
         }
       }
-      output.setupReuse(token: token)
+      
+      if let token = token {
+        tokens.append(token)
+      }
+      
+      
     }
+    
+    output.setupReuse(tokens: tokens)
     
   }
 }
@@ -47,8 +55,8 @@ extension MediaCellPresenter: MediaCellPresenterInput {
     })
   }
   
-  func onReuse(token: UUID?) {
-    if let token = token {
+  func onReuse(tokens: [UUID]) {
+    for token in tokens {
       self.loader?.cancelLoad(token)
     }
   }

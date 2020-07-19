@@ -9,12 +9,13 @@
 import UIKit
 
 class ImageLoader {
-  private var cachedImages = [URL: UIImage]()
+  private var cachedImages = [String: UIImage]()
   private var currentRequests = [UUID: URLSessionDataTask]()
   
-  func loadImage(_ url: URL, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
+  func loadImage(_ url: URL, identifier: String, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
 
-    if let image = cachedImages[url] {
+    if let image = cachedImages[identifier] {
+      print(identifier)
       completion(.success(image))
       return nil
     }
@@ -26,7 +27,7 @@ class ImageLoader {
       defer {self.currentRequests.removeValue(forKey: uuid) }
 
       if let data = data, let image = UIImage(data: data) {
-        self.cachedImages[url] = image
+        self.cachedImages[identifier] = image
         completion(.success(image))
         return
       }

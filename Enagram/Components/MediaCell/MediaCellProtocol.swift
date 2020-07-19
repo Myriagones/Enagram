@@ -10,10 +10,10 @@ import UIKit
 
 protocol MediaCellPresenterInput {
   func loadMedia(media: MediaCaptionModelView, loader: ImageLoader)
-  func onReuse(token: UUID?)
+  func onReuse(tokens: [UUID])
 }
 
 protocol MediaCellPresenterOutput {
   func showImage(image: UIImage, index: Int)
-  func setupReuse(token: UUID?)
+  func setupReuse(tokens: [UUID])
 }

@@ -14,6 +14,7 @@ protocol MediaCellDelegate {
 
 class MediaCollectionViewCell: UICollectionViewCell {
   var presenter: MediaCellPresenterInput!
+  private var onReuse: () -> Void = {}
   
   private lazy var captionLabel: UILabel = {
     let label = UILabel()
@@ -28,8 +29,13 @@ class MediaCollectionViewCell: UICollectionViewCell {
     return imageView
   }()
   
-  var onReuse: () -> Void = {}
-
+  private lazy var scrollView: UIScrollView = {
+    let scrollView = UIScrollView()
+    scrollView.translatesAutoresizingMaskIntoConstraints = false
+    scrollView.isPagingEnabled = true
+    return scrollView
+  }()
+  
   override func prepareForReuse() {
     super.prepareForReuse()
     onReuse()
@@ -47,30 +53,43 @@ class MediaCollectionViewCell: UICollectionViewCell {
   }
   
   private func setupViews() {
-    backgroundColor = .orange
+    addSubview(scrollView)
     addSubview(captionLabel)
-    
-    addSubview(cellImageView)
     
     NSLayoutConstraint.activate([
       captionLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
       captionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-      cellImageView.topAnchor.constraint(equalTo: topAnchor),
-      cellImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-      cellImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-      cellImageView.trailingAnchor.constraint(equalTo: trailingAnchor)
+      scrollView.topAnchor.constraint(equalTo: topAnchor),
+      scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+      scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      scrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
     ])
   }
 }
 
 extension MediaCollectionViewCell: MediaCellPresenterOutput {
   func showImage(image: UIImage, index: Int) {
-    self.cellImageView.image = image
+    let imageView = UIImageView()
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.image = image
+    imageView.contentMode = .scaleAspectFill
+    
+    scrollView.addSubview(imageView)
+    
+    NSLayoutConstraint.activate([
+      imageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+      imageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+      imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: CGFloat(index) * frame.width),
+      imageView.widthAnchor.constraint(equalTo: widthAnchor),
+      imageView.heightAnchor.constraint(equalTo: heightAnchor),
+    ])
+    
+    self.scrollView.contentSize = CGSize(width: CGFloat(index + 1) * frame.width, height: 0)
   }
   
-  func setupReuse(token: UUID?) {
+  func setupReuse(tokens: [UUID]) {
     onReuse = {
-      self.presenter.onReuse(token: token)
+      self.presenter.onReuse(tokens: tokens)
     }
   }
 }

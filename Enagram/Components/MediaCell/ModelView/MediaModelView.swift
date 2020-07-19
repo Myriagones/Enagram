@@ -9,20 +9,20 @@
 import UIKit
 
 enum MediaType: String {
-  case image = "image"
-  case group = "group"
+  case image = "IMAGE"
+  case group = "CAROUSEL_ALBUM"
 }
 
 class MediaModelView {
   var identifier: String
   var url: URL?
-  var type: MediaType
+  var type: MediaType?
   var date: Date
   
   init(media: MediaModel) {
     self.identifier = media.id
     self.url = URL(string: media.media_url)
-    self.type = .image
+    self.type = MediaType(rawValue: media.media_type)
     self.date = Date()
   }
 }
