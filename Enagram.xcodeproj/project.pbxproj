@@ -7,9 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2264E7FA24C3710C006A14FB /* ListMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E7F924C3710C006A14FB /* ListMediaViewController.swift */; };
+		2264E7FC24C3711B006A14FB /* ListMediaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E7FB24C3711B006A14FB /* ListMediaPresenter.swift */; };
+		2264E7FF24C37150006A14FB /* ListMediaProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E7FE24C37150006A14FB /* ListMediaProtocol.swift */; };
+		2264E80124C3716D006A14FB /* ListMediaNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E80024C3716D006A14FB /* ListMediaNavigator.swift */; };
+		2264E80324C3717E006A14FB /* ListMediaConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E80224C3717E006A14FB /* ListMediaConfigurator.swift */; };
+		2264E81424C4180A006A14FB /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E81324C4180A006A14FB /* MediaCollectionViewCell.swift */; };
+		2264E81624C419B1006A14FB /* MediaCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E81524C419B1006A14FB /* MediaCellPresenter.swift */; };
+		2264E81824C419C6006A14FB /* MediaCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E81724C419C6006A14FB /* MediaCellProtocol.swift */; };
+		2264E81A24C419D3006A14FB /* MediaCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E81924C419D3006A14FB /* MediaCellConfigurator.swift */; };
+		2264E81C24C41C7A006A14FB /* MediaCaptionModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E81B24C41C7A006A14FB /* MediaCaptionModelView.swift */; };
+		2264E81E24C41CE6006A14FB /* ListMediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E81D24C41CE6006A14FB /* ListMediaManager.swift */; };
+		2264E82024C4733F006A14FB /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E81F24C4733F006A14FB /* MediaManager.swift */; };
+		2264E82224C4738B006A14FB /* MediaModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E82124C4738B006A14FB /* MediaModelView.swift */; };
+		2264E82524C476E9006A14FB /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E82424C476E9006A14FB /* ImageLoader.swift */; };
 		27263A4324C2B51300CB681B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27263A4224C2B51300CB681B /* AppDelegate.swift */; };
 		27263A4524C2B51300CB681B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27263A4424C2B51300CB681B /* SceneDelegate.swift */; };
-		27263A4724C2B51300CB681B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27263A4624C2B51300CB681B /* ViewController.swift */; };
 		27263A4A24C2B51300CB681B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27263A4824C2B51300CB681B /* Main.storyboard */; };
 		27263A4C24C2B51400CB681B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27263A4B24C2B51400CB681B /* Assets.xcassets */; };
 		27263A4F24C2B51400CB681B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27263A4D24C2B51400CB681B /* LaunchScreen.storyboard */; };
@@ -27,10 +40,23 @@
 
 /* Begin PBXFileReference section */
 		1F0C41C2A807DA80EC2A8276 /* Pods_Enagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Enagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2264E7F924C3710C006A14FB /* ListMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaViewController.swift; sourceTree = "<group>"; };
+		2264E7FB24C3711B006A14FB /* ListMediaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaPresenter.swift; sourceTree = "<group>"; };
+		2264E7FE24C37150006A14FB /* ListMediaProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaProtocol.swift; sourceTree = "<group>"; };
+		2264E80024C3716D006A14FB /* ListMediaNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaNavigator.swift; sourceTree = "<group>"; };
+		2264E80224C3717E006A14FB /* ListMediaConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaConfigurator.swift; sourceTree = "<group>"; };
+		2264E81324C4180A006A14FB /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
+		2264E81524C419B1006A14FB /* MediaCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCellPresenter.swift; sourceTree = "<group>"; };
+		2264E81724C419C6006A14FB /* MediaCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCellProtocol.swift; sourceTree = "<group>"; };
+		2264E81924C419D3006A14FB /* MediaCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCellConfigurator.swift; sourceTree = "<group>"; };
+		2264E81B24C41C7A006A14FB /* MediaCaptionModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCaptionModelView.swift; sourceTree = "<group>"; };
+		2264E81D24C41CE6006A14FB /* ListMediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaManager.swift; sourceTree = "<group>"; };
+		2264E81F24C4733F006A14FB /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaManager.swift; sourceTree = "<group>"; };
+		2264E82124C4738B006A14FB /* MediaModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModelView.swift; sourceTree = "<group>"; };
+		2264E82424C476E9006A14FB /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		27263A3F24C2B51300CB681B /* Enagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Enagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27263A4224C2B51300CB681B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27263A4424C2B51300CB681B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		27263A4624C2B51300CB681B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		27263A4924C2B51300CB681B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27263A4B24C2B51400CB681B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27263A4E24C2B51400CB681B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +86,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2264E7F524C3706D006A14FB /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				2264E7F624C37088006A14FB /* ListMedias */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		2264E7F624C37088006A14FB /* ListMedias */ = {
+			isa = PBXGroup;
+			children = (
+				2264E7F824C370C5006A14FB /* ModelView */,
+				2264E7F724C370AB006A14FB /* Manager */,
+				2264E7F924C3710C006A14FB /* ListMediaViewController.swift */,
+				2264E7FB24C3711B006A14FB /* ListMediaPresenter.swift */,
+				2264E7FE24C37150006A14FB /* ListMediaProtocol.swift */,
+				2264E80024C3716D006A14FB /* ListMediaNavigator.swift */,
+				2264E80224C3717E006A14FB /* ListMediaConfigurator.swift */,
+			);
+			path = ListMedias;
+			sourceTree = "<group>";
+		};
+		2264E7F724C370AB006A14FB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2264E81D24C41CE6006A14FB /* ListMediaManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		2264E7F824C370C5006A14FB /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				2264E81B24C41C7A006A14FB /* MediaCaptionModelView.swift */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		2264E80424C375F8006A14FB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2264E82324C476D6006A14FB /* ImageLoader */,
+				2264E80524C37602006A14FB /* MediaCell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2264E80524C37602006A14FB /* MediaCell */ = {
+			isa = PBXGroup;
+			children = (
+				2264E80624C37633006A14FB /* ModelView */,
+				2264E80724C3763A006A14FB /* Manager */,
+				2264E81324C4180A006A14FB /* MediaCollectionViewCell.swift */,
+				2264E81524C419B1006A14FB /* MediaCellPresenter.swift */,
+				2264E81724C419C6006A14FB /* MediaCellProtocol.swift */,
+				2264E81924C419D3006A14FB /* MediaCellConfigurator.swift */,
+			);
+			path = MediaCell;
+			sourceTree = "<group>";
+		};
+		2264E80624C37633006A14FB /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				2264E82124C4738B006A14FB /* MediaModelView.swift */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		2264E80724C3763A006A14FB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2264E81F24C4733F006A14FB /* MediaManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		2264E82324C476D6006A14FB /* ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				2264E82424C476E9006A14FB /* ImageLoader.swift */,
+			);
+			path = ImageLoader;
+			sourceTree = "<group>";
+		};
 		27263A3624C2B51300CB681B = {
 			isa = PBXGroup;
 			children = (
@@ -81,11 +191,12 @@
 		27263A4124C2B51300CB681B /* Enagram */ = {
 			isa = PBXGroup;
 			children = (
+				2264E80424C375F8006A14FB /* Components */,
+				2264E7F524C3706D006A14FB /* Features */,
 				27263A6224C3282C00CB681B /* Constant */,
 				27263A5624C2B6D300CB681B /* Network */,
 				27263A4224C2B51300CB681B /* AppDelegate.swift */,
 				27263A4424C2B51300CB681B /* SceneDelegate.swift */,
-				27263A4624C2B51300CB681B /* ViewController.swift */,
 				27263A4824C2B51300CB681B /* Main.storyboard */,
 				27263A4B24C2B51400CB681B /* Assets.xcassets */,
 				27263A4D24C2B51400CB681B /* LaunchScreen.storyboard */,
@@ -274,17 +385,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				27263A6424C3283C00CB681B /* VendorKeysProvider.swift in Sources */,
+				2264E81424C4180A006A14FB /* MediaCollectionViewCell.swift in Sources */,
 				27263A5F24C323F700CB681B /* MediasModel.swift in Sources */,
 				27263A6624C32A6500CB681B /* MediaModel.swift in Sources */,
+				2264E81A24C419D3006A14FB /* MediaCellConfigurator.swift in Sources */,
+				2264E80324C3717E006A14FB /* ListMediaConfigurator.swift in Sources */,
 				27263A6824C32B6900CB681B /* MediaClient.swift in Sources */,
 				27263A6C24C32E0400CB681B /* MediaChildrenClient.swift in Sources */,
+				2264E7FC24C3711B006A14FB /* ListMediaPresenter.swift in Sources */,
 				27263A6A24C32D2700CB681B /* MediaChildrenModel.swift in Sources */,
-				27263A4724C2B51300CB681B /* ViewController.swift in Sources */,
+				2264E7FA24C3710C006A14FB /* ListMediaViewController.swift in Sources */,
+				2264E82224C4738B006A14FB /* MediaModelView.swift in Sources */,
 				27263A4324C2B51300CB681B /* AppDelegate.swift in Sources */,
+				2264E81824C419C6006A14FB /* MediaCellProtocol.swift in Sources */,
+				2264E80124C3716D006A14FB /* ListMediaNavigator.swift in Sources */,
+				2264E81C24C41C7A006A14FB /* MediaCaptionModelView.swift in Sources */,
 				27263A4524C2B51300CB681B /* SceneDelegate.swift in Sources */,
+				2264E82524C476E9006A14FB /* ImageLoader.swift in Sources */,
 				27263A6124C3268C00CB681B /* MediasClient.swift in Sources */,
 				27263A5D24C31D8400CB681B /* InstagramRouter.swift in Sources */,
+				2264E82024C4733F006A14FB /* MediaManager.swift in Sources */,
+				2264E81E24C41CE6006A14FB /* ListMediaManager.swift in Sources */,
+				2264E81624C419B1006A14FB /* MediaCellPresenter.swift in Sources */,
 				27263A5B24C2B77100CB681B /* APIClient.swift in Sources */,
+				2264E7FF24C37150006A14FB /* ListMediaProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
