@@ -17,14 +17,13 @@ class MediaModelView {
   var identifier: String
   var url: URL?
   var type: MediaType?
-  var date: Date
+  var date: String?
+  var image: UIImage?
   
   init(media: MediaModel) {
     self.identifier = media.id
     self.url = URL(string: media.media_url)
     self.type = MediaType(rawValue: media.media_type)
-    self.date = Date()
+    self.date = media.timestamp.toDate?.readable
   }
 }
-
-

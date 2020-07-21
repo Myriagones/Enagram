@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ListMediaNavigable {
-  
+  func showDetail(identifier: String, loader: ImageLoader)
 }
 
 class ListMediaNavigator {
@@ -21,5 +21,10 @@ class ListMediaNavigator {
 }
 
 extension ListMediaNavigator: ListMediaNavigable {
-  
+  func showDetail(identifier: String, loader: ImageLoader) {
+    let controller = MediaDetailViewController()
+    let mediaDetail = MediaDetailConfigurator()
+    mediaDetail.configure(viewController: controller, loader: loader, identifier: identifier)
+    viewController?.show(controller, sender: self)
+  }
 }

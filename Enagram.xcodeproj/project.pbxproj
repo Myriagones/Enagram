@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		222D9DFD24C5C04900304057 /* MediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D9DFC24C5C04900304057 /* MediaDetailViewController.swift */; };
+		222D9DFF24C5C08B00304057 /* MediaDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D9DFE24C5C08B00304057 /* MediaDetailPresenter.swift */; };
+		222D9E0124C5C09900304057 /* MediaDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D9E0024C5C09900304057 /* MediaDetailProtocol.swift */; };
+		222D9E0324C6035C00304057 /* MediaDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D9E0224C6035C00304057 /* MediaDetailConfigurator.swift */; };
+		222D9E0624C6D80400304057 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D9E0524C6D80400304057 /* String+Date.swift */; };
+		222D9E0824C6D81600304057 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D9E0724C6D81600304057 /* Date+String.swift */; };
+		222D9E0C24C6DC7900304057 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D9E0B24C6DC7900304057 /* UIUtils.swift */; };
 		2264E7FA24C3710C006A14FB /* ListMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E7F924C3710C006A14FB /* ListMediaViewController.swift */; };
 		2264E7FC24C3711B006A14FB /* ListMediaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E7FB24C3711B006A14FB /* ListMediaPresenter.swift */; };
 		2264E7FF24C37150006A14FB /* ListMediaProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2264E7FE24C37150006A14FB /* ListMediaProtocol.swift */; };
@@ -40,6 +47,13 @@
 
 /* Begin PBXFileReference section */
 		1F0C41C2A807DA80EC2A8276 /* Pods_Enagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Enagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		222D9DFC24C5C04900304057 /* MediaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaDetailViewController.swift; path = Enagram/Features/MediaDetail/MediaDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		222D9DFE24C5C08B00304057 /* MediaDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailPresenter.swift; sourceTree = "<group>"; };
+		222D9E0024C5C09900304057 /* MediaDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailProtocol.swift; sourceTree = "<group>"; };
+		222D9E0224C6035C00304057 /* MediaDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailConfigurator.swift; sourceTree = "<group>"; };
+		222D9E0524C6D80400304057 /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
+		222D9E0724C6D81600304057 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		222D9E0B24C6DC7900304057 /* UIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
 		2264E7F924C3710C006A14FB /* ListMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaViewController.swift; sourceTree = "<group>"; };
 		2264E7FB24C3711B006A14FB /* ListMediaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaPresenter.swift; sourceTree = "<group>"; };
 		2264E7FE24C37150006A14FB /* ListMediaProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaProtocol.swift; sourceTree = "<group>"; };
@@ -86,9 +100,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		222D9DFB24C5B75B00304057 /* MediaDetail */ = {
+			isa = PBXGroup;
+			children = (
+				222D9DFC24C5C04900304057 /* MediaDetailViewController.swift */,
+				222D9DFE24C5C08B00304057 /* MediaDetailPresenter.swift */,
+				222D9E0024C5C09900304057 /* MediaDetailProtocol.swift */,
+				222D9E0224C6035C00304057 /* MediaDetailConfigurator.swift */,
+			);
+			path = MediaDetail;
+			sourceTree = "<group>";
+		};
+		222D9E0424C6D7EE00304057 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				222D9E0524C6D80400304057 /* String+Date.swift */,
+				222D9E0724C6D81600304057 /* Date+String.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		222D9E0924C6D84F00304057 /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				2264E80724C3763A006A14FB /* Manager */,
+				2264E80624C37633006A14FB /* ModelView */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		222D9E0A24C6DC6600304057 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				222D9E0B24C6DC7900304057 /* UIUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		2264E7F524C3706D006A14FB /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				222D9DFB24C5B75B00304057 /* MediaDetail */,
 				2264E7F624C37088006A14FB /* ListMedias */,
 			);
 			path = Features;
@@ -97,8 +149,6 @@
 		2264E7F624C37088006A14FB /* ListMedias */ = {
 			isa = PBXGroup;
 			children = (
-				2264E7F824C370C5006A14FB /* ModelView */,
-				2264E7F724C370AB006A14FB /* Manager */,
 				2264E7F924C3710C006A14FB /* ListMediaViewController.swift */,
 				2264E7FB24C3711B006A14FB /* ListMediaPresenter.swift */,
 				2264E7FE24C37150006A14FB /* ListMediaProtocol.swift */,
@@ -108,25 +158,11 @@
 			path = ListMedias;
 			sourceTree = "<group>";
 		};
-		2264E7F724C370AB006A14FB /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				2264E81D24C41CE6006A14FB /* ListMediaManager.swift */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		2264E7F824C370C5006A14FB /* ModelView */ = {
-			isa = PBXGroup;
-			children = (
-				2264E81B24C41C7A006A14FB /* MediaCaptionModelView.swift */,
-			);
-			path = ModelView;
-			sourceTree = "<group>";
-		};
 		2264E80424C375F8006A14FB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				222D9E0924C6D84F00304057 /* ModelView */,
+				222D9E0424C6D7EE00304057 /* Extension */,
 				2264E82324C476D6006A14FB /* ImageLoader */,
 				2264E80524C37602006A14FB /* MediaCell */,
 			);
@@ -136,8 +172,6 @@
 		2264E80524C37602006A14FB /* MediaCell */ = {
 			isa = PBXGroup;
 			children = (
-				2264E80624C37633006A14FB /* ModelView */,
-				2264E80724C3763A006A14FB /* Manager */,
 				2264E81324C4180A006A14FB /* MediaCollectionViewCell.swift */,
 				2264E81524C419B1006A14FB /* MediaCellPresenter.swift */,
 				2264E81724C419C6006A14FB /* MediaCellProtocol.swift */,
@@ -149,6 +183,7 @@
 		2264E80624C37633006A14FB /* ModelView */ = {
 			isa = PBXGroup;
 			children = (
+				2264E81B24C41C7A006A14FB /* MediaCaptionModelView.swift */,
 				2264E82124C4738B006A14FB /* MediaModelView.swift */,
 			);
 			path = ModelView;
@@ -157,6 +192,7 @@
 		2264E80724C3763A006A14FB /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				2264E81D24C41CE6006A14FB /* ListMediaManager.swift */,
 				2264E81F24C4733F006A14FB /* MediaManager.swift */,
 			);
 			path = Manager;
@@ -191,6 +227,7 @@
 		27263A4124C2B51300CB681B /* Enagram */ = {
 			isa = PBXGroup;
 			children = (
+				222D9E0A24C6DC6600304057 /* Utils */,
 				2264E80424C375F8006A14FB /* Components */,
 				2264E7F524C3706D006A14FB /* Features */,
 				27263A6224C3282C00CB681B /* Constant */,
@@ -390,20 +427,27 @@
 				27263A6624C32A6500CB681B /* MediaModel.swift in Sources */,
 				2264E81A24C419D3006A14FB /* MediaCellConfigurator.swift in Sources */,
 				2264E80324C3717E006A14FB /* ListMediaConfigurator.swift in Sources */,
+				222D9E0824C6D81600304057 /* Date+String.swift in Sources */,
 				27263A6824C32B6900CB681B /* MediaClient.swift in Sources */,
 				27263A6C24C32E0400CB681B /* MediaChildrenClient.swift in Sources */,
 				2264E7FC24C3711B006A14FB /* ListMediaPresenter.swift in Sources */,
 				27263A6A24C32D2700CB681B /* MediaChildrenModel.swift in Sources */,
+				222D9E0624C6D80400304057 /* String+Date.swift in Sources */,
 				2264E7FA24C3710C006A14FB /* ListMediaViewController.swift in Sources */,
 				2264E82224C4738B006A14FB /* MediaModelView.swift in Sources */,
+				222D9DFF24C5C08B00304057 /* MediaDetailPresenter.swift in Sources */,
+				222D9E0124C5C09900304057 /* MediaDetailProtocol.swift in Sources */,
 				27263A4324C2B51300CB681B /* AppDelegate.swift in Sources */,
 				2264E81824C419C6006A14FB /* MediaCellProtocol.swift in Sources */,
 				2264E80124C3716D006A14FB /* ListMediaNavigator.swift in Sources */,
+				222D9E0324C6035C00304057 /* MediaDetailConfigurator.swift in Sources */,
 				2264E81C24C41C7A006A14FB /* MediaCaptionModelView.swift in Sources */,
 				27263A4524C2B51300CB681B /* SceneDelegate.swift in Sources */,
 				2264E82524C476E9006A14FB /* ImageLoader.swift in Sources */,
+				222D9E0C24C6DC7900304057 /* UIUtils.swift in Sources */,
 				27263A6124C3268C00CB681B /* MediasClient.swift in Sources */,
 				27263A5D24C31D8400CB681B /* InstagramRouter.swift in Sources */,
+				222D9DFD24C5C04900304057 /* MediaDetailViewController.swift in Sources */,
 				2264E82024C4733F006A14FB /* MediaManager.swift in Sources */,
 				2264E81E24C41CE6006A14FB /* ListMediaManager.swift in Sources */,
 				2264E81624C419B1006A14FB /* MediaCellPresenter.swift in Sources */,

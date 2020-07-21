@@ -14,6 +14,6 @@ protocol MediaCellPresenterInput {
 }
 
 protocol MediaCellPresenterOutput {
-  func showImage(image: UIImage, index: Int)
+  func display(media: MediaModelView, index: Int, max: Int)
   func setupReuse(tokens: [UUID])
 }

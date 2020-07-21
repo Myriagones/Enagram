@@ -19,14 +19,16 @@ class MediaCellPresenter {
   func loadImages(medias: [MediaModelView]) {
     var tokens = [UUID]()
     for index in 0 ..< medias.count {
-      guard let url = medias[index].url else {
+      let media = medias[index]
+      guard let url = media.url else {
         return
       }
-      let token = loader?.loadImage(url, identifier: medias[index].identifier) { result in
+      let token = loader?.loadImage(url) { result in
         do {
           let image = try result.get()
+          media.image = image
           DispatchQueue.main.async {
-            self.output.showImage(image: image, index: index)
+            self.output.display(media: media, index: index, max: medias.count)
           }
         } catch {
           print(error)
@@ -36,8 +38,6 @@ class MediaCellPresenter {
       if let token = token {
         tokens.append(token)
       }
-      
-      
     }
     
     output.setupReuse(tokens: tokens)

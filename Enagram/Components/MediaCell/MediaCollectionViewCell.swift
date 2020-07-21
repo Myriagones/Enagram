@@ -14,32 +14,59 @@ protocol MediaCellDelegate {
 
 class MediaCollectionViewCell: UICollectionViewCell {
   var presenter: MediaCellPresenterInput!
+  
   private var onReuse: () -> Void = {}
   
-  private lazy var captionLabel: UILabel = {
+  private var imagesView = [UIImageView]()
+  private var numberOfPages: Int = 0
+  
+  private lazy var date: UILabel = {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
-    label.textColor = .black
+    label.textColor = .white
     return label
   }()
   
-  private lazy var cellImageView: UIImageView = {
-    let imageView = UIImageView()
-    imageView.translatesAutoresizingMaskIntoConstraints = false
-    return imageView
+  private lazy var numberPage: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.textColor = .white
+    return label
+  }()
+  
+  private var stackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.axis = .horizontal
+    return stackView
+  }()
+  
+  private lazy var container: UIView = {
+    let container = UIView()
+    container.translatesAutoresizingMaskIntoConstraints = false
+    container.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+    container.isHidden = true
+    return container
   }()
   
   private lazy var scrollView: UIScrollView = {
     let scrollView = UIScrollView()
+    scrollView.isUserInteractionEnabled = false
     scrollView.translatesAutoresizingMaskIntoConstraints = false
     scrollView.isPagingEnabled = true
+    scrollView.delegate = self
     return scrollView
   }()
   
   override func prepareForReuse() {
     super.prepareForReuse()
+    for imageView in imagesView {
+      imageView.image = nil
+      stackView.removeArrangedSubview(imageView)
+    }
+    container.isHidden = true
+    imagesView.removeAll()
     onReuse()
-    cellImageView.image = nil
   }
   
   override init(frame: CGRect) {
@@ -53,38 +80,60 @@ class MediaCollectionViewCell: UICollectionViewCell {
   }
   
   private func setupViews() {
+    contentView.addGestureRecognizer(scrollView.panGestureRecognizer)
     addSubview(scrollView)
-    addSubview(captionLabel)
-    
+    scrollView.addSubview(stackView)
+    addSubview(container)
+    container.addSubview(date)
+    container.addSubview(numberPage)
+    setupLayout()
+  }
+  
+  func setupLayout() {
     NSLayoutConstraint.activate([
-      captionLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-      captionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
       scrollView.topAnchor.constraint(equalTo: topAnchor),
       scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
       scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-      scrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
+      scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+      
+      stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+      stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+      stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+      stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+      stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
+      
+      container.bottomAnchor.constraint(equalTo: bottomAnchor),
+      container.leadingAnchor.constraint(equalTo: leadingAnchor),
+      container.trailingAnchor.constraint(equalTo: trailingAnchor),
+      container.heightAnchor.constraint(equalToConstant: 30),
+      
+      date.topAnchor.constraint(equalTo: container.topAnchor),
+      date.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+      date.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10),
+      
+      numberPage.topAnchor.constraint(equalTo: container.topAnchor),
+      numberPage.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+      numberPage.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10)
     ])
   }
 }
 
 extension MediaCollectionViewCell: MediaCellPresenterOutput {
-  func showImage(image: UIImage, index: Int) {
+  func display(media: MediaModelView, index: Int, max: Int) {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.image = image
+    imageView.image = media.image
     imageView.contentMode = .scaleAspectFill
+    imagesView.append(imageView)
+    stackView.addArrangedSubview(imageView)
     
-    scrollView.addSubview(imageView)
+    imageView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+    imageView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
     
-    NSLayoutConstraint.activate([
-      imageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-      imageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-      imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: CGFloat(index) * frame.width),
-      imageView.widthAnchor.constraint(equalTo: widthAnchor),
-      imageView.heightAnchor.constraint(equalTo: heightAnchor),
-    ])
-    
-    self.scrollView.contentSize = CGSize(width: CGFloat(index + 1) * frame.width, height: 0)
+    container.isHidden = false
+    date.text = media.date
+    numberOfPages = max
+    numberPage.text = String(format: "1/%i", max)
   }
   
   func setupReuse(tokens: [UUID]) {
@@ -96,9 +145,13 @@ extension MediaCollectionViewCell: MediaCellPresenterOutput {
 
 extension MediaCollectionViewCell: MediaCellDelegate {
   func show(media: MediaCaptionModelView, loader: ImageLoader) {
-    let configurator = MediaCellConfigurator()
-    configurator.configure(cell: self)
     presenter.loadMedia(media: media, loader: loader)
-    captionLabel.text = media.caption
+  }
+}
+
+extension MediaCollectionViewCell: UIScrollViewDelegate {
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    let index = Int(scrollView.contentOffset.x / scrollView.bounds.size.width) + 1
+    numberPage.text = String(format: "%i/%i", index, numberOfPages)
   }
 }

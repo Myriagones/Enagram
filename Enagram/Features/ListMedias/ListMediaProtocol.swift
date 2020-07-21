@@ -16,4 +16,5 @@ protocol ListMediaPresenterInput {
   func viewDidLoad()
   func numberOfRow() -> Int
   func showMedias(cell: MediaCellDelegate, index: IndexPath)
+  func pushDetail(at index: Int)
 }

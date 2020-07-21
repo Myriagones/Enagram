@@ -39,4 +39,10 @@ extension ListMediaPresenter: ListMediaPresenterInput {
       cell.show(media: media, loader: imageLoader)
     }
   }
+  
+  func pushDetail(at index: Int) {
+    if let identifier = data?[index].identifier {
+      router.showDetail(identifier: identifier, loader: imageLoader)
+    }
+  }
 }
